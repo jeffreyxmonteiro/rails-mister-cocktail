@@ -1,6 +1,8 @@
-<h1>Add a new cock</h1>
+<h1>Add a new 'meal'</h1>
 
 <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
-  <%= f.submit "add cocktail", class: "btn btn-primary" %>
+  <%= f.submit "add 'meal'", class: "btn btn-primary" %>
 <% end %>
+
+<h6><%= link_to "Back to 'Meals' List", cocktails_path %></h6>

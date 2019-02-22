@@ -1,9 +1,9 @@
-<h1>House of Cocks</h1>
+<h1>Babette's Supper Club</h1>
 
 <% @cocktails.each do |cocktail| %>
-<h3><%= link_to cocktail.name, cocktail_path(cocktail)  %> <%= link_to "Delete Cock", cocktail_path(cocktail), method: :delete%></h3>
+<h3><%= link_to cocktail.name, cocktail_path(cocktail)  %> <%= link_to "Delete 'Meal'", cocktail_path(cocktail), method: :delete%></h3>
 <% end %>
 
-<%= link_to "Add New Cock", new_cocktail_path %>
+<%= link_to "Add 'Meal'", new_cocktail_path %>
 <br>
 
