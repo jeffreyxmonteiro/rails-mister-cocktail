@@ -3,6 +3,7 @@
 <h3>Name: <%= @cocktail.name %></h3>
 
 <h6>Recipe</h6>
+<%= cl_image_tag @cocktail.photo, height: 300, width: 400, crop: :fill %>
 <% @cocktail.doses.each do |dose|  %>
 <p><%= dose.description  %> of <%= dose.ingredient.name  %> <%= link_to "Delete ingredient", dose_path(dose), method: :delete %></p>
 <% end %>
