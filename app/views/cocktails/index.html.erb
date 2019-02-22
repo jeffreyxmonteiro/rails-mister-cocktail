@@ -1,18 +1,84 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
-  <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+<head>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+
+
+<header>
+  <div class="overlay"></div>
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="https://app.coverr.co/s3/mp4/Beach.mp4" type="video/mp4">
+  </video>
+  <div class="container h-100">
+    <div class="d-flex h-100 text-center align-items-center">
+      <div class="w-100 text-white">
+        <h1 class="display-3">Babette's Supper Club</h1>
+        <br>
+        <p class="lead mb-0">Members-only traditional dining establishment</p>
+        <br>
+        <%= link_to "Add 'Meal'", new_cocktail_path, id: "sea", class: "btn sea btn-success"%>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<!-- Team -->
+<section id="team" class="pb-5">
+    <div class="container">
+        <h5 class="section-title h1">OUR 'MEALS'</h5>
+        <div class="row">
+            <!-- Team member -->
+            <% @cocktails.each do |cocktail| %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+                    <div class="mainflip">
+                        <div class="frontside">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <p><%= cl_image_tag cocktail.photo, height: 300, width: 400, crop: :fill %></p>
+                                    <h4 class="card-title"><%= cocktail.name %></h4>
+                                    <p class="card-text">BANNED</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backside">
+                            <div class="card">
+                                <div class="card-body text-center mt-4">
+                                    <h4 class="card-title"><%= link_to cocktail.name, cocktail_path(cocktail)  %></h4>
+                                    <p class="card-text">Click above to view the meal recipe.</p>
+                                    <ul class="list-inline">
+                                        <li class="list-inline-item">
+                                            <%= link_to "Delete 'Meal'", cocktail_path(cocktail), method: :delete%>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% end %>
+            <!-- ./Team member -->
+
+
+        </div>
+    </div>
+</section>
+<!-- Team -->
+
+
+<div class="footer">
+  <div class="footer-copyright">
+    2211 Pacific Avenue on the Boardwalk of Atlantic City, New Jersey &copy; Atlantic County Treasurer Enoch Thompson
   </div>
 </div>
-
-
-<h1>Babette's Supper Club</h1>
-
-<% @cocktails.each do |cocktail| %>
-<h3><%= link_to cocktail.name, cocktail_path(cocktail)  %> <%= link_to "Delete 'Meal'", cocktail_path(cocktail), method: :delete%></h3>
-<% end %>
-
-<%= link_to "Add 'Meal'", new_cocktail_path %>
-<br>
-
+<!-- Est. 1920 Atlantic County Treasurer Enoch Thompson in accordance with Prohibition Regulations -->
+<!--
+http://www.artofvfx.com/BOARDWALK/BDWALK_BRAINSTORM_VFX_07A.jpg -->
